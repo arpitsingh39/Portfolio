@@ -1,16 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arpit's portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
-    <header>
-        <h1>Arpit's Portfolio</h1>
-    </header>
-    <main>
-       <p style="font-size: 100px; text-align: center; margin-top: 200px;">Coming Soon...</p>
-    </main>
+
+  <!-- Header -->
+  <header>
+    <h1>Arpit Singh</h1>
+    <p>Web Developer | Aspiring DevOps & Cloud Engineer | Learner</p>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#message">Message</a>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+        Hi! I’m a third-year Computer Science and Engineering (Data Science) student
+        with a strong interest in DevOps and Cloud Engineering. I have a solid foundation
+        in web technologies like HTML, CSS, and JavaScript, along with programming experience in C, Java, and Python.
+        <br><br>
+        Currently, I’m sharpening my full-stack development skills while exploring DevOps practices
+        and cloud platforms. My focus is on building expertise in tools such as Docker, Kubernetes, and AWS,
+        and applying them to build scalable, automated solutions.
+        <br><br>
+        I'm eager to apply my knowledge in real-world projects and contribute to innovative solutions.
+        Beyond technical skills, I’m passionate about continuous learning, problem-solving,
+        and adapting to new technologies that drive efficiency and collaboration.
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li class="skills-card"><strong>Languages:</strong> C, Java, Python</li>
+        <li class="skills-card"><strong>Web Technologies:</strong> HTML5, CSS3, JavaScript, Responsive Web Design, React.js</li>
+        <li class="skills-card"><strong>Databases:</strong> MySQL</li>
+        <li class="skills-card"><strong>Version Control:</strong> Basic Git & GitHub</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>Bella Vista Restaurant - Responsive Design</h3>
+      <p>
+        An elegant, responsive front-end design for Bella Vista Restaurant.
+        The project features navigation with sections for Home, Menu, About, and Contact/Reservations.
+        <br><br>
+        The site includes a fully functional reservation form with validation.
+        Built with clean, accessible code and optimized responsiveness, it adapts gracefully from desktop
+        to mobile devices.
+      </p>
+      <div class="project-links">
+        <a href="https://bella-vista-frontend.netlify.app/" target="_blank" class="btn">
+          <i class="fa-solid fa-up-right-from-square"></i> Live Demo
+        </a>
+        <a href="https://github.com/arpitsingh39/bellaVistaResponsiveFrontend" target="_blank" class="btn">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>FreshConnect website(Ongoing)</h3>
+      <p>
+        A platform made to connect street vendors with trusted suppliers to resolve product quality, pricing, and availability issues.
+        <br><br>
+        It aims to streamline the supply chain, ensuring that vendors have access to high-quality products.
+        <br><br>
+        It has authentication and order management.
+        The platform is under development currently.
+      </p>
+      <div class="project-links">
+        <a href="https://vendor-supplier.netlify.app/" target="_blank" class="btn"><i class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
+        <a href="#" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>Fitness Website Tracker</h3>
+      <p>A responsive web application to track fitness activities, set goals, and monitor progress over time.
+        <br><br>
+        The application features user authentication, activity logging, and progress visualization.
+        Built with a focus on user experience, it adapts seamlessly to different screen sizes.
+        <br>
+        It has features like BMI calculator, workout planner and daily articles to keep the user motivated.
+      </p>
+      <div class="project-links">
+        <a href="#" class="btn"><i class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
+        <a href="#" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!--send a message -->
+<section id="message">
+  <h2>Send a Message</h2>
+  <div class="form">
+    <form name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="contact">
+      
+      <!-- Name -->
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <!-- Email -->
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+      <!-- Subject -->
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+      <!-- Message -->
+      <label for="msg">Message</label>
+      <textarea id="msg" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:singharpit9872@gmail.com">singharpit9872@gmail.com</a></p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:9699142590">9699142590</a></p>
+        <p id="location"><i class="fa-solid fa-location-dot"></i> Mumbai, Maharashtra, India</p>
+      </div>
+
+      <!-- Connect -->
+      <div class="footer-links">
+        <h3>Connect with me</h3>
+        <a href="https://www.linkedin.com/in/arpit-singh-dev/" target="_blank" class="icons">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/arpitsingh39" target="_blank" class="icons">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-text">
+      <p>Created with ❤️ by Arpit Singh</p>
+      <p>© 2025 Arpit Singh. All Rights Reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
