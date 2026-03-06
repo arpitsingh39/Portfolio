@@ -56,21 +56,36 @@ const ProjectsSection = () => (
             </div>
 
             {/* Buttons */}
-            <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
-              <a href={p.gh} target="_blank" rel="noopener noreferrer"
-                className="btn-ghost" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 6, flex: 1, justifyContent: "center" }}>
-                <GithubIcon size={16} /> GitHub
-              </a>
-              <a href={p.demo}
-                className="btn-accent" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 6, flex: 1, justifyContent: "center",
-                  opacity: p.demo === "#" ? 0.45 : 1, pointerEvents: p.demo === "#" ? "none" : "auto" }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
+            {p.gh === "#" && p.demo === "#" ? (
+              <div style={{
+                marginTop: 8, padding: "10px 16px", borderRadius: 10, textAlign: "center",
+                background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
                 </svg>
-                Live Demo
-              </a>
-            </div>
+                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", fontWeight: 500, letterSpacing: "0.01em" }}>
+                  Deployment is currently paused
+                </span>
+              </div>
+            ) : (
+              <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
+                <a href={p.gh} target="_blank" rel="noopener noreferrer"
+                  className="btn-ghost" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 6, flex: 1, justifyContent: "center" }}>
+                  <GithubIcon size={16} /> GitHub
+                </a>
+                <a href={p.demo}
+                  className="btn-accent" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 6, flex: 1, justifyContent: "center",
+                    opacity: p.demo === "#" ? 0.45 : 1, pointerEvents: p.demo === "#" ? "none" : "auto" }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>

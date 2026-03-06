@@ -86,13 +86,6 @@ const HomeSection = () => (
               bg: "#0A66C2",
               external: true,
             },
-            {
-              icon: <DownloadIcon size={24} />,
-              href: resumeFile,
-              title: "Resume",
-              gradient: true,
-              download: true,
-            },
           ].map((btn, i) => (
             <a
               key={i}
@@ -101,7 +94,7 @@ const HomeSection = () => (
               target={btn.external ? "_blank" : undefined}
               rel={btn.external ? "noopener noreferrer" : undefined}
               download={btn.download ? "Arpit_Singh_Resume.pdf" : undefined}
-              style={{
+              style={{ 
                 width: 58,
                 height: 58,
                 borderRadius: 16,
