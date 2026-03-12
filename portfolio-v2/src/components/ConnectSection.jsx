@@ -55,27 +55,53 @@ const ConnectSection = () => {
         >
           <h2
             className="section-heading"
-            style={{ color: "#ffffff", fontFamily: "Helvetica, Arial, sans-serif" }}
+            style={{
+              color: "#ffffff",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
           >
             Connect With Me
           </h2>
           <p
             className="section-sub"
-            style={{ color: "rgba(255,255,255,0.5)", fontFamily: "Helvetica, Arial, sans-serif" }}
+            style={{
+              color: "rgba(255,255,255,0.5)",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
           >
             Have a project in mind? Let's build something great together.
           </p>
         </div>
 
         <div
-          className="reveal glow-border"
-          style={{ background: "var(--surface)", borderRadius: 24, padding: "48px 48px" }}
+          className="reveal glow-border connect-card-inner"
+          style={{
+            background: "var(--surface)",
+            borderRadius: 24,
+            padding: "48px 48px",
+          }}
         >
           {/* Social links */}
-          <div style={{ display: "flex", justifyContent: "center", gap: 16, marginBottom: 40 }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 16,
+              marginBottom: 40,
+              flexWrap: "wrap",
+            }}
+          >
             {[
-              { icon: <GithubIcon size={22} />, href: "https://github.com/arpitsingh39", label: "GitHub" },
-              { icon: <LinkedinIcon size={22} />, href: "https://www.linkedin.com/in/arpit-singh-dev/", label: "LinkedIn" },
+              {
+                icon: <GithubIcon size={22} />,
+                href: "https://github.com/arpitsingh39",
+                label: "GitHub",
+              },
+              {
+                icon: <LinkedinIcon size={22} />,
+                href: "https://www.linkedin.com/in/arpit-singh-dev/",
+                label: "LinkedIn",
+              },
             ].map((s, i) => (
               <a
                 key={i}
@@ -84,10 +110,17 @@ const ConnectSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  width: 52, height: 52, borderRadius: 14,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  background: "var(--surface2)", border: "1px solid var(--border)",
-                  color: "var(--text)", textDecoration: "none", transition: "all 0.2s",
+                  width: 52,
+                  height: 52,
+                  borderRadius: 14,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "var(--surface2)",
+                  border: "1px solid var(--border)",
+                  color: "var(--text)",
+                  textDecoration: "none",
+                  transition: "all 0.2s",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = "#3b82f6";
@@ -107,10 +140,17 @@ const ConnectSection = () => {
               href="mailto:singharpit9872@gmail.com"
               title="Email"
               style={{
-                width: 52, height: 52, borderRadius: 14,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                background: "var(--surface2)", border: "1px solid var(--border)",
-                color: "var(--text)", textDecoration: "none", fontSize: 20,
+                width: 52,
+                height: 52,
+                borderRadius: 14,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "var(--surface2)",
+                border: "1px solid var(--border)",
+                color: "var(--text)",
+                textDecoration: "none",
+                fontSize: 20,
                 transition: "all 0.2s",
               }}
               onMouseEnter={(e) => {
@@ -138,7 +178,7 @@ const ConnectSection = () => {
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="bot-field" />
 
-            <div style={{ display: "flex", gap: 16, marginBottom: 16 }}>
+            <div className="connect-form-row">
               <input
                 className="connect-input"
                 placeholder="Your Name"
@@ -171,12 +211,26 @@ const ConnectSection = () => {
 
             {/* Status messages */}
             {status === "success" && (
-              <p style={{ color: "#4ade80", fontSize: 14, marginBottom: 16, textAlign: "center" }}>
+              <p
+                style={{
+                  color: "#4ade80",
+                  fontSize: 14,
+                  marginBottom: 16,
+                  textAlign: "center",
+                }}
+              >
                 ✅ Message sent! I'll get back to you soon.
               </p>
             )}
             {status === "error" && (
-              <p style={{ color: "#f87171", fontSize: 14, marginBottom: 16, textAlign: "center" }}>
+              <p
+                style={{
+                  color: "#f87171",
+                  fontSize: 14,
+                  marginBottom: 16,
+                  textAlign: "center",
+                }}
+              >
                 ❌ Something went wrong. Please try again.
               </p>
             )}

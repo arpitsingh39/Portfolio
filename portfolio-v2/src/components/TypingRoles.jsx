@@ -38,7 +38,7 @@ const TypingRoles = () => {
   return (
     <h2
       style={{
-        fontSize: 22,
+        fontSize: "clamp(16px, 4vw, 22px)",
         fontWeight: 600,
         marginTop: 12,
         marginBottom: 24,

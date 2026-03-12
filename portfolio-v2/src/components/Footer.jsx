@@ -12,6 +12,7 @@ const Footer = () => (
   >
     <div style={{ maxWidth: 1200, margin: "0 auto" }}>
       <div
+        className="footer-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
@@ -80,7 +81,9 @@ const Footer = () => (
                 transition: "color 0.2s",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#3b82f6")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--muted)")
+              }
             >
               {l}
             </a>

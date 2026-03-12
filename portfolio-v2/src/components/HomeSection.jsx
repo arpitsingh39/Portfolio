@@ -16,19 +16,9 @@ const HomeSection = () => (
       padding: "100px 32px 60px",
     }}
   >
-    <div
-      style={{
-        maxWidth: 1200,
-        margin: "0 auto",
-        display: "flex",
-        alignItems: "center",
-        gap: 64,
-        width: "100%",
-        flexWrap: "wrap",
-      }}
-    >
+    <div className="home-inner">
       {/* Left */}
-      <div style={{ flex: 1, minWidth: 320 }}>
+      <div style={{ flex: 1, minWidth: 280 }}>
         <div
           className="reveal"
           style={{
@@ -94,7 +84,7 @@ const HomeSection = () => (
               target={btn.external ? "_blank" : undefined}
               rel={btn.external ? "noopener noreferrer" : undefined}
               download={btn.download ? "Arpit_Singh_Resume.pdf" : undefined}
-              style={{ 
+              style={{
                 width: 58,
                 height: 58,
                 borderRadius: 16,

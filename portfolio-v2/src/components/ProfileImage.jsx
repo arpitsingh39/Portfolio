@@ -4,17 +4,24 @@ import profilePic from "../assets/Profile.jpg";
 
 /* ── Profile Image with orbit rings ── */
 const ProfileImage = () => {
-
-  
   const [ring1Deg, setRing1Deg] = useState(0);
   const [ring2Deg, setRing2Deg] = useState(0);
   const rafRef = useRef(null);
   const ring1Icons = ["C", "JAVA", "PYTHON", "CLOUD"];
-  const ring2Icons = ["HTML", "CSS", "JS", "TAILWIND","MONGODB", "EXPRESS", "REACT", "NODE"];
+  const ring2Icons = [
+    "HTML",
+    "CSS",
+    "JS",
+    "TAILWIND",
+    "MONGODB",
+    "EXPRESS",
+    "REACT",
+    "NODE",
+  ];
 
-  const [ringsMount, setRingsMount]   = useState(false);
+  const [ringsMount, setRingsMount] = useState(false);
   const [ringsExpand, setRingsExpand] = useState(false);
-  const [logosShow, setLogosShow]     = useState(false);
+  const [logosShow, setLogosShow] = useState(false);
   const timers = useRef([]);
 
   const clearTimers = () => {
@@ -49,14 +56,16 @@ const ProfileImage = () => {
   /* ── Hover OUT — slowed down ── */
   const handleMouseLeave = () => {
     clearTimers();
-    setLogosShow(false);                                       // logos fade (500ms)
-    const t1 = setTimeout(() => setRingsExpand(false), 520);  // rings collapse after logos gone
-    const t2 = setTimeout(() => setRingsMount(false), 1800);  // unmount after collapse finishes
+    setLogosShow(false); // logos fade (500ms)
+    const t1 = setTimeout(() => setRingsExpand(false), 520); // rings collapse after logos gone
+    const t2 = setTimeout(() => setRingsMount(false), 1800); // unmount after collapse finishes
     timers.current = [t1, t2];
   };
 
-  const R1 = 185, R2 = 225;
-  const cx = 240, cy = 240;
+  const R1 = 185,
+    R2 = 225;
+  const cx = 240,
+    cy = 240;
 
   const scaleWrap = (delay = 0) => ({
     position: "absolute",
@@ -91,14 +100,7 @@ const ProfileImage = () => {
       `}</style>
 
       <div
-        style={{
-          position: "relative",
-          width: 480,
-          height: 480,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        className="profile-container"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -106,10 +108,19 @@ const ProfileImage = () => {
           <>
             {/* ── Ring 1 (inner) ── */}
             <div style={scaleWrap(0)}>
-              <div className="spin-cw" style={{ position: "absolute", inset: 0 }}>
-                <svg width="480" height="480" style={{ position: "absolute", inset: 0 }}>
+              <div
+                className="spin-cw"
+                style={{ position: "absolute", inset: 0 }}
+              >
+                <svg
+                  width="480"
+                  height="480"
+                  style={{ position: "absolute", inset: 0 }}
+                >
                   <circle
-                    cx={cx} cy={cy} r={R1}
+                    cx={cx}
+                    cy={cy}
+                    r={R1}
                     fill="none"
                     stroke="rgba(56,189,248,0.28)"
                     strokeWidth="1.5"
@@ -125,7 +136,10 @@ const ProfileImage = () => {
                 const x = cx + R1 * Math.cos(angle);
                 const y = cy + R1 * Math.sin(angle);
                 return (
-                  <div key={label} style={{ position: "absolute", inset: 0, ...logoFade }}>
+                  <div
+                    key={label}
+                    style={{ position: "absolute", inset: 0, ...logoFade }}
+                  >
                     <TechOrbit label={label} x={x} y={y} />
                   </div>
                 );
@@ -134,9 +148,15 @@ const ProfileImage = () => {
 
             {/* ── Ring 2 (outer) ── */}
             <div style={scaleWrap(80)}>
-              <svg width="480" height="480" style={{ position: "absolute", inset: 0 }}>
+              <svg
+                width="480"
+                height="480"
+                style={{ position: "absolute", inset: 0 }}
+              >
                 <circle
-                  cx={cx} cy={cy} r={R2}
+                  cx={cx}
+                  cy={cy}
+                  r={R2}
                   fill="none"
                   stroke="rgba(129,140,248,0.22)"
                   strokeWidth="1.5"
@@ -151,7 +171,10 @@ const ProfileImage = () => {
                 const x = cx + R2 * Math.cos(angle);
                 const y = cy + R2 * Math.sin(angle);
                 return (
-                  <div key={label + i} style={{ position: "absolute", inset: 0, ...logoFade }}>
+                  <div
+                    key={label + i}
+                    style={{ position: "absolute", inset: 0, ...logoFade }}
+                  >
                     <TechOrbit label={label} x={x} y={y} />
                   </div>
                 );

@@ -230,6 +230,195 @@ const GlobalStyles = () => (
     }
     .connect-input:focus { border-color: var(--accent); }
     .connect-input::placeholder { color: var(--muted); }
+
+    /* ── Mobile hamburger button ── */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      padding: 4px;
+      z-index: 110;
+    }
+
+    /* ── Desktop nav links wrapper ── */
+    .nav-links-desktop {
+      display: flex;
+      gap: 28px;
+      margin-left: auto;
+      position: relative;
+    }
+
+    /* ── Mobile nav overlay ── */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 90;
+    }
+    .mobile-nav-overlay.open { display: block; }
+
+    /* ── Mobile nav panel ── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 101;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+    .mobile-nav.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .mobile-nav a {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover, .mobile-nav a.active { color: var(--accent); }
+
+    /* ── Home section wrapper ── */
+    .home-inner {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      width: 100%;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ── Connect form row ── */
+    .connect-form-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    /* ── Experience card ── */
+    .exp-card-wrapper {
+      width: 44%;
+    }
+
+    /* ── Cert card responsive ── */
+    .cert-card {
+      transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ── Profile container ── */
+    .profile-container {
+      position: relative;
+      width: 480px;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ════════════════════════════════════════════════
+       TABLET — max-width: 768px
+       ════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      /* Show hamburger, hide desktop links */
+      .mobile-menu-btn { display: flex; }
+      .nav-links-desktop { display: none !important; }
+
+      /* Section padding */
+      .section-wrap { padding: 60px 20px !important; }
+
+      /* Home stacks vertically */
+      .home-inner {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+      }
+      .home-inner > div:first-child { min-width: unset !important; }
+
+      /* Profile scales down — keep 480×480 for orbit math, only scale visually */
+      .profile-container {
+        transform: scale(0.7);
+        transform-origin: center center;
+        margin: -72px;
+      }
+
+      /* Skills grid → 1 col */
+      .skills-grid { grid-template-columns: 1fr !important; }
+
+      /* Experience timeline → left aligned */
+      .timeline-line { left: 16px !important; }
+      .exp-item {
+        justify-content: flex-start !important;
+        padding-left: 44px !important;
+      }
+      .exp-item .timeline-dot {
+        left: 16px !important;
+      }
+      .exp-card-wrapper { width: 100% !important; }
+
+      /* Cert card sizing */
+      .cert-card.active { width: 420px !important; height: 300px !important; }
+      .cert-card.inactive { width: 220px !important; height: 240px !important; }
+      .cert-card { margin: 20px 40px 40px 40px !important; }
+
+      /* Connect form stacks */
+      .connect-form-row { flex-direction: column; }
+      .connect-card-inner { padding: 32px 24px !important; }
+
+      /* Section heading margins */
+      .section-sub { margin-bottom: 36px !important; }
+    }
+
+    /* ════════════════════════════════════════════════
+       MOBILE — max-width: 480px
+       ════════════════════════════════════════════════ */
+    @media (max-width: 480px) {
+      .section-wrap { padding: 48px 14px !important; }
+
+      .home-inner { gap: 24px; }
+
+      /* Profile even smaller */
+      .profile-container {
+        transform: scale(0.55);
+        margin: -108px;
+      }
+
+      /* Projects grid */
+      .proj-grid { grid-template-columns: 1fr !important; }
+
+      /* Cert card sizing */
+      .cert-card.active { width: 300px !important; height: 220px !important; }
+      .cert-card.inactive { width: 180px !important; height: 190px !important; }
+      .cert-card { margin: 16px 20px 30px 20px !important; }
+
+      /* Footer */
+      .footer-grid { gap: 24px !important; }
+
+      /* Connect card */
+      .connect-card-inner { padding: 24px 16px !important; }
+
+      /* Navbar padding */
+      .navbar { padding: 0 16px !important; }
+
+      .section-sub { margin-bottom: 28px !important; }
+    }
   `}</style>
 );
 

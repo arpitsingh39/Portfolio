@@ -12,7 +12,6 @@ const ExpCard = ({ exp }) => {
         background: "var(--surface)",
         borderRadius: 18,
         padding: "24px 28px",
-        width: "44%",
         position: "relative",
         transition: "transform 0.35s ease, box-shadow 0.35s ease",
         transform: hovered ? "translateY(-6px)" : "none",
@@ -95,7 +94,7 @@ const ExperienceSection = () => (
           {EXPERIENCE.map((exp, i) => (
             <div
               key={i}
-              className="reveal"
+              className="reveal exp-item"
               style={{
                 display: "flex",
                 justifyContent:
@@ -105,6 +104,7 @@ const ExperienceSection = () => (
             >
               {/* Dot */}
               <div
+                className="timeline-dot"
                 style={{
                   position: "absolute",
                   left: "50%",
@@ -120,7 +120,9 @@ const ExperienceSection = () => (
                 }}
               />
 
-              <ExpCard exp={exp} />
+              <div className="exp-card-wrapper">
+                <ExpCard exp={exp} />
+              </div>
             </div>
           ))}
         </div>
