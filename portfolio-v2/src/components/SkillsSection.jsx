@@ -2,7 +2,7 @@ import { useState, useCallback, memo } from "react";
 import htmlLogo from "../assets/html_logo.png";
 import cssLogo from "../assets/css_logo.png";
 import NodeLogo from "../assets/node_logo.png";
-import mysqlLogo from "../assets/mysql_logo.png";
+import mysqlLogo from "../assets/mySQL_logo.png";
 import postgresqlLogo from "../assets/postgre_logo.png";
 import postmanLogo from "../assets/postman_logo.png";
 
