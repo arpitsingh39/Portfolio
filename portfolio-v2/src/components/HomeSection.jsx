@@ -50,7 +50,7 @@ const HomeSection = () => (
             marginBottom: 40,
           }}
         >
-          I’m a 3rd Year Computer Science (Data Science) student passionate
+          I’m a Final Year Computer Science (Data Science) student passionate
           about building scalable and practical web applications.
           <br />
           Currently focused on Full-Stack Development (MERN) and strengthening
@@ -60,7 +60,7 @@ const HomeSection = () => (
         </div>
 
         {/* Icon Buttons */}
-        <div className="reveal" style={{ display: "flex", gap: 16 }}>
+        <div className="reveal home-socials" style={{ display: "flex", gap: 16 }}>
           {[
             {
               icon: <GithubIcon size={24} />,

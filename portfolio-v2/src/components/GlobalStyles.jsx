@@ -342,25 +342,27 @@ const GlobalStyles = () => (
       .nav-links-desktop { display: none !important; }
 
       /* Section padding */
-      .section-wrap { padding: 60px 20px !important; }
+      .section-wrap { padding: 70px 20px !important; }
+      #home.section-wrap { padding: 104px 20px 48px !important; }
 
-      /* Home stacks vertically */
+      /* Home stacks vertically & centered */
       .home-inner {
         flex-direction: column;
-        gap: 40px;
+        gap: 36px;
         text-align: center;
       }
       .home-inner > div:first-child { min-width: unset !important; }
+      .home-socials { justify-content: center !important; }
 
-      /* Profile scales down — keep 480×480 for orbit math, only scale visually */
+      /* Profile scales down */
       .profile-container {
-        transform: scale(0.7);
+        transform: scale(0.72);
         transform-origin: center center;
-        margin: -72px;
+        margin: -64px 0;
       }
 
-      /* Skills grid → 1 col */
-      .skills-grid { grid-template-columns: 1fr !important; }
+      /* Skills grid */
+      .skills-box { padding: 32px 20px !important; }
 
       /* Experience timeline → left aligned */
       .timeline-line { left: 16px !important; }
@@ -374,13 +376,12 @@ const GlobalStyles = () => (
       .exp-card-wrapper { width: 100% !important; }
 
       /* Cert card sizing */
-      .cert-card.active { width: 420px !important; height: 300px !important; }
-      .cert-card.inactive { width: 220px !important; height: 240px !important; }
-      .cert-card { margin: 20px 40px 40px 40px !important; }
+      .cert-card.active { width: min(440px, 80vw) !important; height: 300px !important; margin: 0 auto !important; }
+      .cert-card.inactive { width: min(220px, 45vw) !important; height: 240px !important; margin: 0 auto !important; }
 
       /* Connect form stacks */
       .connect-form-row { flex-direction: column; }
-      .connect-card-inner { padding: 32px 24px !important; }
+      .connect-card-inner { padding: 36px 24px !important; }
 
       /* Section heading margins */
       .section-sub { margin-bottom: 36px !important; }
@@ -390,34 +391,58 @@ const GlobalStyles = () => (
        MOBILE — max-width: 480px
        ════════════════════════════════════════════════ */
     @media (max-width: 480px) {
-      .section-wrap { padding: 48px 14px !important; }
+      .section-wrap { padding: 56px 16px !important; }
+      #home.section-wrap { padding: 94px 16px 36px !important; min-height: unset !important; }
 
-      .home-inner { gap: 24px; }
+      .home-inner { gap: 28px; }
 
-      /* Profile even smaller */
+      /* Profile container for small mobile screens */
       .profile-container {
-        transform: scale(0.55);
-        margin: -108px;
+        transform: scale(0.58);
+        margin: -96px 0;
       }
 
       /* Projects grid */
-      .proj-grid { grid-template-columns: 1fr !important; }
+      .proj-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .proj-card { padding: 22px 18px !important; border-radius: 16px !important; }
 
-      /* Cert card sizing */
-      .cert-card.active { width: 300px !important; height: 220px !important; }
-      .cert-card.inactive { width: 180px !important; height: 190px !important; }
-      .cert-card { margin: 16px 20px 30px 20px !important; }
+      /* Skills section mobile */
+      .skills-box { padding: 24px 14px !important; border-radius: 16px !important; }
 
-      /* Footer */
-      .footer-grid { gap: 24px !important; }
+      /* Experience item on small screens */
+      .timeline-line { left: 12px !important; }
+      .exp-item { padding-left: 36px !important; }
+      .exp-item .timeline-dot { left: 12px !important; width: 14px !important; height: 14px !important; }
+
+      /* Cert card sizing — centered with no overflow */
+      .cert-card.active {
+        width: min(320px, calc(100vw - 44px)) !important;
+        height: 224px !important;
+        margin: 0 auto !important;
+        border-radius: 16px !important;
+      }
+      .cert-card.inactive {
+        width: 170px !important;
+        height: 185px !important;
+        margin: 0 auto !important;
+        border-radius: 14px !important;
+      }
 
       /* Connect card */
-      .connect-card-inner { padding: 24px 16px !important; }
+      .connect-card-inner { padding: 26px 18px !important; border-radius: 18px !important; }
 
-      /* Navbar padding */
+      /* Footer */
+      .footer-grid { gap: 28px !important; }
+
+      /* Navbar */
       .navbar { padding: 0 16px !important; }
 
       .section-sub { margin-bottom: 28px !important; }
+
+      /* Smooth tap feedback */
+      button:active, .btn-accent:active, .btn-ghost:active, a:active {
+        transform: scale(0.97);
+      }
     }
   `}</style>
 );

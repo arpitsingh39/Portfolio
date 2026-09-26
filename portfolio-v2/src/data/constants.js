@@ -29,15 +29,7 @@ export const PROJECTS = [
     icon: "🎬",
     color: "280",
   },
-  {
-    title: "The Lavish Laundry",
-    desc: "Full-featured laundry service that uses EmailJs API for sending emails with a dynamic cart system, service booking form, and customer-facing UI. Users can add services to cart, see a running total, and submit booking requests with name, email and phone.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    gh: "https://github.com/arpitsingh39/laundry_wallah_complete_frontend",
-    demo: "https://the-lavish-laundry.netlify.app/",
-    icon: "🧺",
-    color: "160",
-  },
+
 ];
 
 export const SKILLS = [
@@ -49,7 +41,7 @@ export const SKILLS = [
 
 export const EXPERIENCE = [
     { period: "June 2023 – Present", company: "VCET", role: "B.E – Computer Science (Data Science)", desc: "Currently pursuing B.E in Computer Science with specialization in Data Science. Gaining hands-on experience in machine learning, data analysis, and software development.", side: "right" },
-    { period: "Oct 2025 – Present", company: "Google Developers Group (GDG)", role: "Cloud Team Member", desc: "Enhancing my knowledge in Cloud, DevOps & Deployment practices while supporting the developer community.", side: "left" }
+    { period: "Oct 2025 – May 2026", company: "Google Developers Group (GDG)", role: "Cloud Team Member", desc: "Enhancing my knowledge in Cloud, DevOps & Deployment practices while supporting the developer community.", side: "left" }
 ];
 
 export const CERTS = [

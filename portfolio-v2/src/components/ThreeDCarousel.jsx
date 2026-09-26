@@ -10,6 +10,7 @@ const CAROUSEL_CSS = `
   user-select: none;
   -webkit-user-select: none;
   touch-action: pan-y;
+  height: 300px;
 }
 .cascade-slider_slides {
   position: relative;
@@ -81,13 +82,11 @@ const CAROUSEL_CSS = `
   .cascade-slider_arrow-right { right: 4px; }
 }
 
-@media screen and (min-width: 414px) {
-  .cascade-slider_container { height: 52vh; }
-}
-@media screen and (min-width: 576px) {
-  .cascade-slider_container { height: 64vh; }
+@media screen and (min-width: 480px) {
+  .cascade-slider_container { height: 360px; }
 }
 @media screen and (min-width: 768px) {
+  .cascade-slider_container { height: 460px; }
   .cascade-slider_item.next { transform: translateY(-50%) translateX(-130%) scale(0.5); filter: grayscale(1) brightness(0.55); }
   .cascade-slider_item.prev { transform: translateY(-50%) translateX(30%) scale(0.5); filter: grayscale(1) brightness(0.55); }
 }
@@ -96,14 +95,14 @@ const CAROUSEL_CSS = `
   .cascade-slider_item.prev  { transform: translateY(-50%) translateX(18%)  scale(0.48); z-index: 4; filter: grayscale(1) brightness(0.55); }
   .cascade-slider_item.next2 { transform: translateY(-50%) translateX(-162%) scale(0.3);  z-index: 3; opacity: 0.4; filter: grayscale(1) brightness(0.45); }
   .cascade-slider_item.prev2 { transform: translateY(-50%) translateX(62%)  scale(0.3);  z-index: 3; opacity: 0.4; filter: grayscale(1) brightness(0.45); }
-  .cascade-slider_container { height: 52vh; }
+  .cascade-slider_container { height: 500px; }
 }
 @media screen and (min-width: 1100px) {
   .cascade-slider_item.next  { transform: translateY(-50%) translateX(-132%) scale(0.48); filter: grayscale(1) brightness(0.55); }
   .cascade-slider_item.prev  { transform: translateY(-50%) translateX(32%)  scale(0.48); filter: grayscale(1) brightness(0.55); }
   .cascade-slider_item.next2 { transform: translateY(-50%) translateX(-188%) scale(0.3);  filter: grayscale(1) brightness(0.45); }
   .cascade-slider_item.prev2 { transform: translateY(-50%) translateX(88%)  scale(0.3);  filter: grayscale(1) brightness(0.45); }
-  .cascade-slider_container { height: 50vh; }
+  .cascade-slider_container { height: 500px; }
 }
 `;
 
@@ -221,7 +220,7 @@ const ThreeDCarousel = ({
   const handleDragEnd = (x) => {
     if (!isDragging) return;
     const dist = x - startX;
-    if (Math.abs(dist) > swipeThreshold) navigate(dist < 0 ? "next" : "prev");
+    if (Math.abs(dist) > swipeThreshold) navigate(dist < 0 ? "prev" : "next");
     setIsDragging(false);
     setStartX(0);
   };
@@ -252,6 +251,11 @@ const ThreeDCarousel = ({
                 key={slide.id}
                 className={`cascade-slider_item ${cls}`}
                 data-slide={i}
+                onClick={() => {
+                  if (cls && cls !== "now") {
+                    setActiveIndex(i);
+                  }
+                }}
               >
                 {renderSlide ? (
                   renderSlide(slide, cls === "now")
