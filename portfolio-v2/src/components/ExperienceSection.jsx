@@ -58,7 +58,6 @@ const ExperienceSection = () => (
   <section
     id="experience"
     className="section-wrap"
-    style={{ padding: "100px 32px" }}
   >
     <div style={{ maxWidth: 1100, margin: "0 auto" }}>
       <div className="reveal" style={{ textAlign: "center", marginBottom: 70 }}>

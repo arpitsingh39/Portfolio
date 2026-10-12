@@ -1,5 +1,5 @@
 import ProfileImage from "./ProfileImage";
-import { GithubIcon, LinkedinIcon, DownloadIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon } from "./Icons";
 import TypingName from "./TypingName";
 import TypingRoles from "./TypingRoles";
 import resumeFile from "../assets/Arpit_Singh_Resume.pdf";
@@ -13,12 +13,11 @@ const HomeSection = () => (
       minHeight: "100vh",
       display: "flex",
       alignItems: "center",
-      padding: "100px 32px 60px",
     }}
   >
     <div className="home-inner">
-      {/* Left */}
-      <div style={{ flex: 1, minWidth: 280 }}>
+      {/* Left — text block */}
+      <div className="home-text-block">
         <div
           className="reveal"
           style={{
@@ -40,21 +39,12 @@ const HomeSection = () => (
         <TypingName />
         <TypingRoles />
 
-        <div
-          className="reveal"
-          style={{
-            fontSize: 17,
-            lineHeight: 1.7,
-            color: "var(--muted)",
-            maxWidth: 520,
-            marginBottom: 40,
-          }}
-        >
-          I’m a Final Year Computer Science (Data Science) student passionate
+        <div className="reveal home-bio">
+          I'm a Final Year Computer Science (Data Science) student passionate
           about building scalable and practical web applications.
           <br />
           Currently focused on Full-Stack Development (MERN) and strengthening
-          my DevOps & Cloud fundamentals.
+          my DevOps &amp; Cloud fundamentals.
           <br />I enjoy turning ideas into real-world projects that solve
           meaningful problems.
         </div>
@@ -100,6 +90,7 @@ const HomeSection = () => (
                   : "0 4px 16px rgba(0,0,0,0.3)",
                 textDecoration: "none",
                 transition: "transform 0.2s, box-shadow 0.2s",
+                flexShrink: 0,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
@@ -118,10 +109,10 @@ const HomeSection = () => (
         </div>
       </div>
 
-      {/* Right */}
+      {/* Right — profile image */}
       <div
         className="reveal"
-        style={{ display: "flex", justifyContent: "center", flex: 1 }}
+        style={{ display: "flex", justifyContent: "center" }}
       >
         <ProfileImage />
       </div>

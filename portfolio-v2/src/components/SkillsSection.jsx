@@ -269,7 +269,7 @@ const SkillsSection = () => {
   const displayed = activeTab === "All Skills" ? ALL_SKILLS : (SKILLS_DATA[activeTab] ?? []);
 
   return (
-    <section id="skills" style={{ padding: "100px 32px", background: "transparent" }}>
+    <section id="skills" className="section-wrap" style={{ background: "transparent" }}>
       <style>{`
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(14px); }
@@ -281,15 +281,14 @@ const SkillsSection = () => {
 
         {/* Heading */}
         <div style={{ textAlign: "center", marginBottom: 52 }}>
-          <h2 style={{
-            fontSize: 42, fontWeight: 800, color: "#ffffff",
-            margin: "0 0 12px",
+          <h2 className="section-heading" style={{
             fontFamily: "system-ui, -apple-system, 'Segoe UI', sans-serif",
             letterSpacing: "-0.5px",
+            margin: "0 0 12px",
           }}>
             Skills &amp; Expertise
           </h2>
-          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", margin: 0, fontFamily: "system-ui, -apple-system, sans-serif" }}>
+          <p className="section-sub" style={{ margin: 0, fontFamily: "system-ui, -apple-system, sans-serif" }}>
             Technologies that I know &amp; work with
           </p>
         </div>

@@ -34,7 +34,6 @@ const ConnectSection = () => {
     <section
       id="contact"
       className="section-wrap"
-      style={{ padding: "100px 32px" }}
     >
       {/*
         ── IMPORTANT ──

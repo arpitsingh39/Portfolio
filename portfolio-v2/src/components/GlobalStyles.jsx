@@ -51,6 +51,18 @@ const GlobalStyles = () => (
     .section-wrap {
       position: relative;
       z-index: 1;
+      padding: 100px 32px;
+    }
+
+    /* Home section needs extra top padding for fixed navbar */
+    #home.section-wrap {
+      padding-top: 104px;
+      padding-bottom: 60px;
+    }
+
+    /* Prevent any section from causing horizontal overflow */
+    section, footer {
+      overflow-x: hidden;
     }
 
     /* Scrollbar */
@@ -203,7 +215,7 @@ const GlobalStyles = () => (
     .nav-link:hover::after { transform: scaleX(1); }
 
     .section-heading {
-      font-size: clamp(28px, 5vw, 44px);
+      font-size: clamp(26px, 5vw, 44px);
       font-weight: 800;
       letter-spacing: -0.02em;
       color: #ffffff;
@@ -306,6 +318,32 @@ const GlobalStyles = () => (
       margin: 0 auto;
     }
 
+    /* Home text block */
+    .home-text-block {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Home bio text */
+    .home-bio {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    /* ── Profile container ── */
+    .profile-container {
+      position: relative;
+      width: 480px;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
     /* ── Connect form row ── */
     .connect-form-row {
       display: flex;
@@ -323,14 +361,14 @@ const GlobalStyles = () => (
       transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
     }
 
-    /* ── Profile container ── */
-    .profile-container {
-      position: relative;
-      width: 480px;
-      height: 480px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* ════════════════════════════════════════════════
+       LARGE TABLET — max-width: 1024px
+       ════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .profile-container {
+        width: 400px;
+        height: 400px;
+      }
     }
 
     /* ════════════════════════════════════════════════
@@ -347,18 +385,19 @@ const GlobalStyles = () => (
 
       /* Home stacks vertically & centered */
       .home-inner {
-        flex-direction: column;
-        gap: 36px;
+        flex-direction: column-reverse;
+        gap: 24px;
         text-align: center;
       }
-      .home-inner > div:first-child { min-width: unset !important; }
+      .home-text-block { min-width: 0 !important; width: 100%; }
+      .home-bio { max-width: 100% !important; margin-left: auto; margin-right: auto; }
       .home-socials { justify-content: center !important; }
 
-      /* Profile scales down */
+      /* Profile scales down — use actual size reduction not transform scale */
       .profile-container {
-        transform: scale(0.72);
-        transform-origin: center center;
-        margin: -64px 0;
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
       }
 
       /* Skills grid */
@@ -376,8 +415,8 @@ const GlobalStyles = () => (
       .exp-card-wrapper { width: 100% !important; }
 
       /* Cert card sizing */
-      .cert-card.active { width: min(440px, 80vw) !important; height: 300px !important; margin: 0 auto !important; }
-      .cert-card.inactive { width: min(220px, 45vw) !important; height: 240px !important; margin: 0 auto !important; }
+      .cert-card.active { width: min(440px, 80vw) !important; height: 300px !important; margin: 16px auto !important; }
+      .cert-card.inactive { width: min(220px, 40vw) !important; height: 220px !important; margin: 16px auto !important; }
 
       /* Connect form stacks */
       .connect-form-row { flex-direction: column; }
@@ -394,12 +433,12 @@ const GlobalStyles = () => (
       .section-wrap { padding: 56px 16px !important; }
       #home.section-wrap { padding: 94px 16px 36px !important; min-height: unset !important; }
 
-      .home-inner { gap: 28px; }
+      .home-inner { gap: 20px; }
 
       /* Profile container for small mobile screens */
       .profile-container {
-        transform: scale(0.58);
-        margin: -96px 0;
+        width: 220px;
+        height: 220px;
       }
 
       /* Projects grid */
@@ -416,15 +455,15 @@ const GlobalStyles = () => (
 
       /* Cert card sizing — centered with no overflow */
       .cert-card.active {
-        width: min(320px, calc(100vw - 44px)) !important;
-        height: 224px !important;
-        margin: 0 auto !important;
+        width: min(300px, calc(100vw - 56px)) !important;
+        height: 200px !important;
+        margin: 12px auto !important;
         border-radius: 16px !important;
       }
       .cert-card.inactive {
-        width: 170px !important;
-        height: 185px !important;
-        margin: 0 auto !important;
+        width: min(150px, 36vw) !important;
+        height: 160px !important;
+        margin: 12px auto !important;
         border-radius: 14px !important;
       }
 

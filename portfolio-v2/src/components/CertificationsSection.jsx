@@ -40,9 +40,11 @@ const CertCard = ({ cert, isActive }) => {
     <div
       className={`cert-card ${isActive ? "active" : "inactive"}`}
       style={{
+        /* Width/height managed by CSS classes for responsiveness */
         width: isActive ? 600 : 280,
         height: isActive ? 420 : 300,
-        margin: "30px 100px 60px 100px",
+        /* Use small margin so it doesn't overflow container */
+        margin: "20px auto",
         borderRadius: 20,
         border: "2px solid " + (isActive ? COLOR : COLOR + "44"),
         boxShadow: isActive

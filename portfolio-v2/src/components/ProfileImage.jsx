@@ -7,6 +7,7 @@ const ProfileImage = () => {
   const [ring1Deg, setRing1Deg] = useState(0);
   const [ring2Deg, setRing2Deg] = useState(0);
   const rafRef = useRef(null);
+  const containerRef = useRef(null);
   const ring1Icons = ["C", "JAVA", "PYTHON", "CLOUD"];
   const ring2Icons = [
     "HTML",
@@ -23,6 +24,20 @@ const ProfileImage = () => {
   const [ringsExpand, setRingsExpand] = useState(false);
   const [logosShow, setLogosShow] = useState(false);
   const timers = useRef([]);
+
+  /* Actual rendered container size (CSS-driven) */
+  const [containerSize, setContainerSize] = useState(480);
+
+  useEffect(() => {
+    const updateSize = () => {
+      if (containerRef.current) {
+        setContainerSize(containerRef.current.offsetWidth || 480);
+      }
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   const clearTimers = () => {
     timers.current.forEach(clearTimeout);
@@ -62,10 +77,16 @@ const ProfileImage = () => {
     timers.current = [t1, t2];
   };
 
-  const R1 = 185,
-    R2 = 225;
-  const cx = 240,
-    cy = 240;
+  /* Scale ring radii proportionally to actual container size */
+  const BASE = 480;
+  const scale = containerSize / BASE;
+  const R1 = Math.round(185 * scale);
+  const R2 = Math.round(225 * scale);
+  const cx = containerSize / 2;
+  const cy = containerSize / 2;
+
+  /* Profile circle size = 58% of container */
+  const profileSize = Math.round(containerSize * 0.583);
 
   const scaleWrap = (delay = 0) => ({
     position: "absolute",
@@ -100,6 +121,7 @@ const ProfileImage = () => {
       `}</style>
 
       <div
+        ref={containerRef}
         className="profile-container"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -113,8 +135,8 @@ const ProfileImage = () => {
                 style={{ position: "absolute", inset: 0 }}
               >
                 <svg
-                  width="480"
-                  height="480"
+                  width={containerSize}
+                  height={containerSize}
                   style={{ position: "absolute", inset: 0 }}
                 >
                   <circle
@@ -149,8 +171,8 @@ const ProfileImage = () => {
             {/* ── Ring 2 (outer) ── */}
             <div style={scaleWrap(80)}>
               <svg
-                width="480"
-                height="480"
+                width={containerSize}
+                height={containerSize}
                 style={{ position: "absolute", inset: 0 }}
               >
                 <circle
@@ -187,8 +209,8 @@ const ProfileImage = () => {
         <div
           className="vibrate"
           style={{
-            width: 280,
-            height: 280,
+            width: profileSize,
+            height: profileSize,
             borderRadius: "50%",
             overflow: "hidden",
             border: "3px solid rgba(255,255,255,0.3)",

@@ -5,7 +5,6 @@ const ProjectsSection = () => (
   <section
     id="projects"
     className="section-wrap"
-    style={{ padding: "100px 32px" }}
   >
     <div style={{ maxWidth: 1200, margin: "0 auto" }}>
       <div className="reveal" style={{ textAlign: "center", marginBottom: 60 }}>
